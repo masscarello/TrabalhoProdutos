@@ -27,7 +27,7 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public ProdutoModel atualizarProduto(Long id, ProdutoModel produtoModel){
+    public ProdutoModel atualizarProduto(@PathVariable Long id, @RequestBody ProdutoModel produtoModel){
         ProdutoModel produtoNovo = produtoRepository.findById(id).get();
         produtoNovo.setNome(produtoModel.getNome());
         return produtoRepository.save(produtoNovo);
